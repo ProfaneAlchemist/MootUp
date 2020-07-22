@@ -16,3 +16,8 @@ Manage Sign Ups
 Create team optimisation algorithm  
 Setup Auto Email  
 Setup API stuff  
+
+## Potential Frameworks
+ASP.NET Core
+
+

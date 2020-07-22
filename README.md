@@ -8,8 +8,9 @@ Submissions made by the following people:
 ## Front End  
 Create Preference Submission page  
 Update Pictures  
-Update Placeholders  
-Better Design???  
+Update Placeholders
+Better Design???
+Create information page
 
 ## Back End  
 Manage Sign Ups  

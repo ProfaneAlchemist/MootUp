@@ -5,12 +5,11 @@ Submissions made by the following people:
 >Jordan Morrow  
 
 # TODO  
-## Front End  
+## Front End
 Create Preference Submission page  
-Update Pictures  
+Update Pictures
 Update Placeholders
-Better Design???
-Create information page
+Better Design
 
 ## Back End  
 Manage Sign Ups  

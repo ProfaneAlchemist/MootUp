@@ -6,14 +6,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Team Form</title>
+    <title>MootUp</title>
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+    <!-- Jquery external reference-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Scrolling Script-->
+    <script>
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    </script>
 
     <!-- Bootstrap External Reference-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <!-- Animate.css External Reference -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <!-- Font References -->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans" rel="stylesheet">
-    <!-- CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="main.css">
+
 
     <!-- Metadata -->
     <meta charset="utf-8">
@@ -23,188 +35,40 @@
     <meta name="author" content="Lasal Boyagama, Emre Cakmakcioglu, Jordan Morrow">
 
 </head>
-<body>
-    <!-- Main Page -->
-    <form method="post">
-        <br>
-        <div class="form-group">
-            <label class="radio-inline"><input type="radio" name="optradio" checked id="newGroupOption"> Looking for a mooting team</label>
-            <label class="radio-inline"><input type="radio" name="optradio" id="existingGroupOption"> Looking for another member for an existing team</label>
+<body id="main">
+    <!-- Start of Flexbox layout -->
+    <div class="mainPages">
+
+        <!-- Title Page -->
+        <div id="page0">
+            <!-- Background Image -->
+            <img src="Images/title-page.svg" id="titleImage">
+            <!-- Shutter Title -->
+            <div id="titleHolder" onselectstart="return false">
+                <h1 class="noSelect">MootUp</h1>
+            </div>
+            <a href="#page1">
+                <img alt="down arrow to proceed to the next section" src="images/arrow-down.svg" class="arrow down" id="page0arrowdown">
+            </a>
         </div>
-    </form>
+        <!-- Main Page -->
+        <div id="page1">
+            <iframe src="iframe-form.html" id="formFrame"></iframe>
+        </div>
 
-    <datalist id="yearList">
-        <option value="0"></option>
-        <option value="1"></option>
-        <option value="2"></option>
-        <option value="3"></option>
-        <option value="4"></option>
-    </datalist>
+        <!-- Media Page -->
+        <div id="page2">
 
-    <datalist id="timeList">
-        <option value="0">Under 4 hours</option>
-        <option value="1">4-7 hours</option>
-        <option value="2">8-10 hours</option>
-        <option value="3">10+ hours</option>
-    </datalist>
-
-    <div id="newGroup">
-        <form method="post">
-            <div class="form-group">
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="given-name" name="given-name" class="form-control nameInput" placeholder="First Name">
-                <input type="text" id="lastNameInput" name="family-name" class="form-control nameInput" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-                <label for="email">E-Mail:</label>
-                <input type="email" id="emailInput" name="email" class="form-control" placeholder="example@domain.com">
-            </div>
-            <div class="form-group">
-                <label for="year">What year into your law degree are you:</label><br>
-                <input type="range" name="year" min="0" max="4" step="1" list="yearList" id="yearInput" class="form-control-range">
-                <div class="sliderticks">
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5+</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="experience">How much mooting experience do you have?</label>
-                <select class="form-control" id="experienceInput">
-                    <option></option>
-                    <option>NONE</option>
-                    <option>MINIMAL</option>
-                    <option>MODERATE</option>
-                    <option>EXPERIENCED</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="teamExperience">How much mooting experience are you looking for in your teammates?</label>
-                <select class="form-control" id="teamExperienceInput">
-                    <option></option>
-                    <option>NONE</option>
-                    <option>MINIMAL</option>
-                    <option>MODERATE</option>
-                    <option>EXPERIENCED</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="goal">What is your goal for this moot?</label>
-                <select class="form-control" id="goalInput">
-                    <option></option>
-                    <option>EXPERIENCE</option>
-                    <option>IMPROVEMENT</option>
-                    <option>COMPETITIVE</option>
-                    <option>VICTORIOUS</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="time">How many hours do you expect you and your teammates to commit to this moot?</label>
-                <input type="range" name="time" min="0" max="4" step="1" list="timeList" id="timeInput" class="form-control-range">
-                <div class="sliderticks">
-                    <p>-4</p>
-                    <p>4-6</p>
-                    <p>6-8</p>
-                    <p>8-10</p>
-                    <p>10+</p>
-                </div>
-            </div>
-            <div class="form-group" id="mainOption">
-                <label for="role">What is your prefered role for this moot?</label>
-                <label class="radio-inline"><input type="radio" name="optradio" checked> Barrister</label>
-                <label class="radio-inline"><input type="radio" name="optradio"> Solicitor</label>
-            </div>
-            <input type="submit" class="btn-block btn-dark" value="Submit">
-        </form>
+        </div>
     </div>
+    <!-- External References -->
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <div id="existingGroup">
-        <form method="post">
-            <div class="form-group">
-                <label for="member1">Team Member 1:</label><br>
-                <label for="fullName1">Full Name:</label>
-                <input type="text" id="given-name" name="given-name" class="form-control nameInput" placeholder="First Name">
-                <input type="text" id="lastNameInput1" name="family-name" class="form-control nameInput" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="emailInput1" name="email" class="form-control" placeholder="abc123@def.com">
-            </div>
-            <div class="form-group">
-                <label for="member2">Team Member 2:</label><br>
-                <label for="fullName2">Full Name:</label>
-                <input type="text" id="given-name" name="given-name" class="form-control nameInput" placeholder="First Name">
-                <input type="text" id="lastNameInput2" name="family-name" class="form-control nameInput" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="emailInput2" name="email" class="form-control" placeholder="abc123@def.com">
-            </div>
-            <div class="form-group">
-                <label for="year">What year into your law degree are you:</label>
-                <input type="range" name="year" min="0" max="4" step="1" list="yearList" id="yearInput1" class="form-control-range">
-                <div class="sliderticks">
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5+</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="experience">How much mooting experience do you have?</label>
-                <select class="form-control" id="experienceInput1">
-                    <option></option>
-                    <option>None</option>
-                    <option>Minimal - completed one or two moots</option>
-                    <option>Moderate - completed several moots</option>
-                    <option>Experienced - have done several years of mooting</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="teamExperience">How much mooting experience are you looking for in your teammates?</label>
-                <select class="form-control" id="teamExperienceInput1">
-                    <option></option>
-                    <option>None</option>
-                    <option>Minimal - completed one or two moots</option>
-                    <option>Moderate - completed several moots</option>
-                    <option>Experienced - have done several years of mooting</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="goal">What is your goal for this moot?</label>
-                <select class="form-control" id="goalInput1">
-                    <option></option>
-                    <option>EXPERIENCE</option>
-                    <option>IMPROVEMENT</option>
-                    <option>COMPETITIVE</option>
-                    <option>VICTORIOUS</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="time">How much time do you expect you and your teammates to commit to this moot?</label>
-                <input type="range" name="time" min="0" max="4" step="1" list="timeList" id="timeInput1" class="form-control-range">
-                <div class="sliderticks">
-                    <p>-4</p>
-                    <p>4-6</p>
-                    <p>6-8</p>
-                    <p>8-10</p>
-                    <p>10+</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="role">What role do you need filled?</label>
-                <label class="radio-inline"><input type="radio" name="optradio" id="barristerOption1"> Barrister</label>
-                <label class="radio-inline"><input type="radio" name="optradio" id="solicitorOption1"> Solicitor</label>
-            </div>
-            <input type="submit" class="btn-block btn-dark" value="Submit">
-        </form>
-    </div>
     <!-- Javascript Files -->
-    <!-- Iframe JS file -->
-    <script type="text/javascript" src="iframe.js"></script>
-
+    <!-- Main JS file -->
+    <script type="text/javascript" src="~/js/site.js"></script>
 </body>
 </html>

@@ -1,20 +1,41 @@
-/*Takes away the scrolling feature to force segmented sections */
+/* Takes away the scrolling feature to force segmented sections */
 
 #main {
     overflow: hidden;
     width: calc(100vw - (100vw - 100%));
 }
 
+/* Hidden class for DOM manipulation from the iframe.js and main.js files */
+
 .hidden {
     display: none;
 }
+
+/* Element classes - these classes will apply to all elements */
+
 
 body{
     background-color: transparent;
 }
 
+/* width */
 ::-webkit-scrollbar {
-    display: none;
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: dimgrey;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 :root {
@@ -29,10 +50,17 @@ td,th {
     padding-bottom: calc(10px - 1ex);
 }
 
+input[type:'submit'] {
+    background-color: aqua;
+}
+
 .font {
     font-family: ('Work Sans', sans-serif);
     text-transform: uppercase;
-    font-weight: 700
+    font-weight: 700;
+    background-color: dimgray;
+    border-color: dimgrey;
+    border-bottom-color: dimgray;
 }
 
 h1 {
